@@ -1,0 +1,52 @@
+/* NutriClinic Pro — print stylesheet (A4 reports) */
+
+.print-root { display: none; }
+
+@media print {
+  @page { size: A4; margin: 0; }
+
+  html, body { background: #fff !important; }
+  body > *:not(.print-root) { display: none !important; }
+  .print-root { display: block !important; }
+
+  .print-sheet {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 14mm 13mm 16mm;
+    box-sizing: border-box;
+    background: #fff;
+    color: #14213D;
+    font: 12px/1.45 "Segoe UI", Tahoma, Arial, "Noto Sans Arabic", sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-sheet * { box-sizing: border-box; }
+  .print-sheet h1 { font-size: 20px; margin: 0 0 4px; }
+  .print-sheet h2 { font-size: 15px; margin: 14px 0 6px; color: #14213D; border-bottom: 1.5px solid #C6A667; padding-bottom: 3px; }
+  .print-sheet h3 { font-size: 13px; margin: 10px 0 4px; color: #800020; }
+  .print-sheet p { margin: 4px 0; }
+  .print-sheet table { width: 100%; border-collapse: collapse; margin: 6px 0 10px; }
+  .print-sheet th, .print-sheet td { border: 1px solid #C9CFDB; padding: 4px 6px; text-align: start; font-size: 11.5px; vertical-align: top; }
+  .print-sheet th { background: #14213D; color: #fff; font-weight: 600; }
+  .print-sheet tr:nth-child(even) td { background: #F6F7FA; }
+  .print-sheet .rpt-totals td { background: #F1EDE2; font-weight: 600; }
+  .print-sheet .sheet-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; border-bottom: 2.5px solid #14213D; padding-bottom: 10px; margin-bottom: 10px; }
+  .print-sheet .sheet-clinic { font-size: 11px; color: #4A5468; text-align: end; }
+  .print-sheet .sheet-logo { width: 58px; height: 58px; }
+  .print-sheet .sheet-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 18px; font-size: 11.5px; margin: 6px 0 10px; }
+  .print-sheet .sheet-meta div { padding: 1px 0; }
+  .print-sheet .kv-label { color: #4A5468; }
+  .print-sheet .meal-block { page-break-inside: avoid; border: 1px solid #D8DCE5; border-radius: 6px; padding: 6px 8px; margin: 6px 0; }
+  .print-sheet .meal-block h3 { margin: 0 0 4px; }
+  .print-sheet .sign { margin-top: 26px; display: flex; justify-content: space-between; font-size: 11px; color: #4A5468; }
+  .print-sheet .sign .line { border-top: 1px solid #14213D; width: 60mm; margin-top: 30px; padding-top: 3px; }
+  .print-sheet .foot-note { margin-top: 14px; font-size: 10px; color: #6B7280; border-top: 1px solid #E3E6EB; padding-top: 6px; }
+  .print-sheet .avoid-break { page-break-inside: avoid; }
+  .print-sheet [dir="rtl"] { direction: rtl; }
+  .rtl-sheet { direction: rtl; }
+  .rtl-sheet .sheet-clinic { text-align: start; }
+  .print-sheet .plain-mode h1 { font-size: 16px; }
+  .print-sheet .badge-print { display: inline-block; border: 1px solid #C6A667; color: #800020; border-radius: 999px; padding: 1px 8px; font-size: 10px; }
+}
